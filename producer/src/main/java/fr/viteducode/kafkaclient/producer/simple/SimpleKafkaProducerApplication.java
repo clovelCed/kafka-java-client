@@ -1,4 +1,4 @@
-package fr.viteducode.kafkaclient.producer;
+package fr.viteducode.kafkaclient.producer.simple;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -18,9 +18,14 @@ public class SimpleKafkaProducerApplication {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        ProducerRecord<String, String> record = new ProducerRecord<>("topic1", "key1", "value 1");
-
-        producer.send(record);
+        ProducerRecord<String, String> record1 = new ProducerRecord<>("simple_topic", "key1", "value 1");
+        producer.send(record1, (recordMetadata, e) -> {
+            if (e != null) {
+                System.out.println(e.getMessage());
+            } else {
+                System.out.println(recordMetadata.offset());
+            }
+        });
 
         producer.close();
     }
