@@ -1,4 +1,4 @@
-package fr.viteducode.kafkaclient.producer.custom;
+package fr.viteducode.kafkaclient.producer.customserializer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;

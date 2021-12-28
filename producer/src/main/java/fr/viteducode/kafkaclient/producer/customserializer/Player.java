@@ -1,4 +1,4 @@
-package fr.viteducode.kafkaclient.producer.custom;
+package fr.viteducode.kafkaclient.producer.customserializer;
 
 public class Player implements CustomData {
 

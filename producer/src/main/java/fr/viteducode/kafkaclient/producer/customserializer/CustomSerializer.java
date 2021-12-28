@@ -1,4 +1,4 @@
-package fr.viteducode.kafkaclient.producer.custom;
+package fr.viteducode.kafkaclient.producer.customserializer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
