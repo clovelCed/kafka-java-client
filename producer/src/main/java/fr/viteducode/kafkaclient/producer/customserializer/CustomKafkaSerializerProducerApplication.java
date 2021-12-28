@@ -20,19 +20,11 @@ public class CustomKafkaSerializerProducerApplication {
 
         Champion champion = new Champion(1L, "Garen");
         ProducerRecord<Long, CustomData> championRecord = new ProducerRecord<>("champion_topic", champion.getId(), champion);
-        producer.send(championRecord, (recordMetadata, e) -> {
-            if (e != null) {
-                System.out.println(e.getMessage());
-            }
-        });
+        producer.send(championRecord);
 
         Player player = new Player(25L, "Faker", true);
         ProducerRecord<Long, CustomData> playerRecord = new ProducerRecord<>("player_topic", player.getId(), player);
-        producer.send(playerRecord, (recordMetadata, e) -> {
-            if (e != null) {
-                System.out.println(e.getMessage());
-            }
-        });
+        producer.send(playerRecord);
 
         producer.close();
     }
