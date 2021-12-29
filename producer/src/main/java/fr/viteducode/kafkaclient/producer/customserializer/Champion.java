@@ -1,6 +1,6 @@
 package fr.viteducode.kafkaclient.producer.customserializer;
 
-public class Champion implements CustomData {
+public class Champion {
 
     private Long id;
 

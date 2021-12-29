@@ -7,7 +7,7 @@ import org.apache.kafka.common.serialization.Serializer;
 
 import java.util.Map;
 
-public class CustomSerializer implements Serializer<CustomData> {
+public class CustomSerializer implements Serializer<Champion> {
 
     private final ObjectMapper objectMapper;
 
@@ -21,7 +21,7 @@ public class CustomSerializer implements Serializer<CustomData> {
     }
 
     @Override
-    public byte[] serialize(String s, CustomData message) {
+    public byte[] serialize(String s, Champion message) {
 
         byte[] data = null;
 

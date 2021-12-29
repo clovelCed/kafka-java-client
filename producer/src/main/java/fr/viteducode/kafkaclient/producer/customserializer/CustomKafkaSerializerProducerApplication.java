@@ -16,15 +16,11 @@ public class CustomKafkaSerializerProducerApplication {
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, CustomSerializer.class);
 
-        KafkaProducer<Long, CustomData> producer = new KafkaProducer<>(properties);
+        KafkaProducer<Long, Champion> producer = new KafkaProducer<>(properties);
 
         Champion champion = new Champion(1L, "Garen");
-        ProducerRecord<Long, CustomData> championRecord = new ProducerRecord<>("champion_topic", champion.getId(), champion);
+        ProducerRecord<Long, Champion> championRecord = new ProducerRecord<>("champion_topic", champion.getId(), champion);
         producer.send(championRecord);
-
-        Player player = new Player(25L, "Faker", true);
-        ProducerRecord<Long, CustomData> playerRecord = new ProducerRecord<>("player_topic", player.getId(), player);
-        producer.send(playerRecord);
 
         producer.close();
     }
