@@ -19,8 +19,8 @@ public class SimpleKafkaProducerApplication {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
         String topic = "simple_topic";
-        String key = "key";
-        String value = "value";
+        String key = "10";
+        String value = "John";
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
         producer.send(record, (recordMetadata, exception) -> {
             if (exception != null) {
