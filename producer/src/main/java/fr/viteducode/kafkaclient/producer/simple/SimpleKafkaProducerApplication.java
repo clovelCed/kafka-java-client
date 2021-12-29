@@ -18,12 +18,13 @@ public class SimpleKafkaProducerApplication {
 
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        ProducerRecord<String, String> record1 = new ProducerRecord<>("simple_topic", "key1", "value 1");
-        producer.send(record1, (recordMetadata, e) -> {
-            if (e != null) {
-                System.out.println(e.getMessage());
-            } else {
-                System.out.println(recordMetadata.offset());
+        String topic = "simple_topic";
+        String key = "key";
+        String value = "value";
+        ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+        producer.send(record, (recordMetadata, exception) -> {
+            if (exception != null) {
+                System.out.println(exception.getMessage());
             }
         });
 
