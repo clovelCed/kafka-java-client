@@ -19,6 +19,7 @@ public class CustomKafkaSerializerProducerApplication {
         KafkaProducer<Long, Champion> producer = new KafkaProducer<>(properties);
 
         Champion champion = new Champion(1L, "Garen");
+
         ProducerRecord<Long, Champion> championRecord = new ProducerRecord<>("champion_topic", champion.getId(), champion);
         producer.send(championRecord);
 
