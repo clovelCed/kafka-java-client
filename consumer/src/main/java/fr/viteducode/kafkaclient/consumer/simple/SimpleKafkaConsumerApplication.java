@@ -20,6 +20,7 @@ public class SimpleKafkaConsumerApplication {
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "consumer1");
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         KafkaConsumer<String, String> kafkaConsumer = new KafkaConsumer<>(properties);
         kafkaConsumer.subscribe(Collections.singleton("simple_topic"));
